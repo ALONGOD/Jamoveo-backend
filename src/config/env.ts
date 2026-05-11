@@ -17,7 +17,6 @@ export const env = {
   port: parseInt(optional('PORT', '3001'), 10),
   mongodbUri: required('MONGODB_URI'),
   jwtSecret: required('JWT_SECRET'),
-  jwtExpirationSeconds: parseInt(optional('JWT_EXPIRATION_SECONDS', '3600'), 10),
   adminSignupSecret: required('ADMIN_SIGNUP_SECRET'),
   frontendUrl: optional('FRONTEND_URL', 'http://localhost:3000'),
 };

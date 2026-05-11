@@ -4,6 +4,8 @@ import User, { IUserDocument } from '../models/User';
 import { env } from '../config/env';
 import { Instrument, JwtPayload, Role } from '../types';
 
+const JWT_EXPIRATION_SECONDS = 60 * 60;
+
 class JwtAuthService {
   private buildPayload(user: IUserDocument): JwtPayload {
     return {
@@ -15,7 +17,7 @@ class JwtAuthService {
   }
 
   signJwt(user: IUserDocument): string {
-    const options: SignOptions = { expiresIn: env.jwtExpirationSeconds };
+    const options: SignOptions = { expiresIn: JWT_EXPIRATION_SECONDS };
     return jwt.sign(this.buildPayload(user), env.jwtSecret, options);
   }
 
