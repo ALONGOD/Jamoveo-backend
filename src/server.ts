@@ -35,9 +35,9 @@ const io = new SocketIOServer(httpServer, {
 initRehearsalSocket(io);
 
 mongoose
-  .connect(env.mongodbUri)
+  .connect(env.mongodbUri, { dbName: 'jamoveo' })
   .then(() => {
-    console.log(`[db] connected to MongoDB`);
+    console.log(`[db] connected to MongoDB db=jamoveo`);
     httpServer.listen(env.port, () => {
       console.log(`[server] listening on http://localhost:${env.port}`);
       console.log(`[server] env=${env.nodeEnv} frontend=${env.frontendUrl}`);
