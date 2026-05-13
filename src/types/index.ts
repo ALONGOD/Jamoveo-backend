@@ -43,5 +43,6 @@ export interface Song {
   title: string;
   artist: string;
   sourceUrl: string;
+  image?: string;
   lines: SongLine[];
 }
